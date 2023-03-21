@@ -1,4 +1,4 @@
-<img align="right" src="src/assets/Logo.png" width="35%" alt="twitter">
+<img align="right" src="src/assets/Logo.png" width="30px" alt="twitter">
 
 ## Tópicos 
 
