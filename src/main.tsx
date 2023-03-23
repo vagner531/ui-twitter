@@ -1,6 +1,16 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { House } from "phosphor-react";
+import {
+  Hash,
+  House,
+  Bell,
+  Envelope,
+  BookmarkSimple,
+  FileText,
+  User,
+  DotsThreeCircle,
+  Sparkle,
+} from "phosphor-react";
 
 import "./global.css";
 
@@ -17,20 +27,58 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
             <House weight="fill" />
             Home
           </a>
-          <a href="">Explore</a>
-          <a href="">Notifications</a>
-          <a href="">Messages</a>
-          <a href="">Bookmarks</a>
-          <a href="">Lists</a>
-          <a href="">Profile</a>
-          <a href="">More</a>
+          <a href="">
+            <Hash />
+            Explore
+          </a>
+          <a href="">
+            <Bell />
+            Notifications
+          </a>
+          <a href="">
+            <Envelope />
+            Messages
+          </a>
+          <a href="">
+            <BookmarkSimple />
+            Bookmarks
+          </a>
+          <a href="">
+            <FileText />
+            Lists
+          </a>
+          <a href="">
+            <User />
+            Profile
+          </a>
+          <a href="">
+            <DotsThreeCircle />
+            More
+          </a>
         </nav>
 
         <button className="new-tweet" type="button">
           Tweet
         </button>
       </aside>
-      <div className="content">Content</div>
+      <div className="content">
+        <main className="timeline">
+          <div className="timeline-header">
+            Home
+            <Sparkle />
+          </div>
+
+          <form className="new-tweet-form">
+            <label htmlFor="tweet">
+              <img src="https://github.com/vagner531.png" alt="Vagner Santos" />
+              <textarea id="tweet" placeholder="What´s happening?"></textarea>
+            </label>
+
+            <button type="submit">Tweet</button>
+          </form>
+          <div className="separator" />
+        </main>
+      </div>
     </div>
   </React.StrictMode>
 );
