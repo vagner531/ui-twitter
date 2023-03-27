@@ -7,6 +7,8 @@ import './Timeline.css';
 const tweets = ["Meu primeito Tweet", "Teste", "Deu certo!"];
 
 export function Timeline() {
+  function createNewTweet() {}
+ 
   return (
     <main className="timeline">
       <Header title="Home" />
