@@ -4,6 +4,7 @@ import { Separator } from "../components/Separator";
 import { Tweet } from "../components/Tweet";
 
 import "./Status.css";
+import { PaperPlaneRight } from "phosphor-react";
 
 export function Status() {
   const [newAnswer, setNewAnswer] = useState("");
@@ -17,13 +18,13 @@ export function Status() {
     event.preventDefault();
 
     setAnswers([newAnswer, ...answers]);
-    setNewAnswer('');
+    setNewAnswer("");
   }
 
   function handleHotkeySubmit(event: KeyboardEvent) {
     if (event.key === "Enter" && (event.ctrlKey || event.metaKey)) {
       setAnswers([newAnswer, ...answers]);
-      setNewAnswer('');
+      setNewAnswer("");
     }
   }
 
@@ -51,7 +52,10 @@ export function Status() {
           />
         </label>
 
-        <button type="submit">Answer</button>
+        <button type="submit">
+          <PaperPlaneRight />
+          <span>Answer</span>
+        </button>
       </form>
 
       {answers.map((answer) => {
