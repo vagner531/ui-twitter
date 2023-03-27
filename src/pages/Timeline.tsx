@@ -1,4 +1,4 @@
-import { FormEvent, useState } from "react";
+import { FormEvent, KeyboardEvent, useState } from "react";
 import { Header } from "../components/Header";
 import { Separator } from "../components/Separator";
 import { Tweet } from "../components/Tweet";
@@ -6,17 +6,21 @@ import { Tweet } from "../components/Tweet";
 import "./Timeline.css";
 
 export function Timeline() {
-  const [newTweet, setNewTweet] = useState('')
-  const [tweets, setTweets] = useState([
-    'Meu primeito Tweet',
-    'Teste',
-])
+  const [newTweet, setNewTweet] = useState("");
+  const [tweets, setTweets] = useState(["Meu primeito Tweet", "Teste"]);
 
   function createNewTweet(event: FormEvent) {
-    event.preventDefault()
+    event.preventDefault();
 
-    setTweets([newTweet, ...tweets])
-    setNewTweet('')
+    setTweets([newTweet, ...tweets]);
+    setNewTweet("");
+  }
+
+  function handleHotkeySubmit(event: KeyboardEvent) {
+    if (event.key === "Enter" && (event.ctrlKey || event.metaKey)) {
+      setTweets([newTweet, ...tweets]);
+      setNewTweet("");
+    }
   }
 
   return (
@@ -26,14 +30,15 @@ export function Timeline() {
       <form onSubmit={createNewTweet} className="new-tweet-form">
         <label htmlFor="tweet">
           <img src="https://github.com/vagner531.png" alt="Vagner Santos" />
-          <textarea 
-             id="tweet" 
+          <textarea
+            id="tweet"
             placeholder="What´s happening?"
             value={newTweet}
+            onKeyDown={handleHotkeySubmit}
             onChange={(event) => {
-              setNewTweet(event.target.value)
+              setNewTweet(event.target.value);
             }}
-            />
+          />
         </label>
 
         <button type="submit">Tweet</button>
